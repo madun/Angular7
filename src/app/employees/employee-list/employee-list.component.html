@@ -1,0 +1,26 @@
+<!-- <cdk-virtual-scroll-viewport  style="height: 500px" itemSize="90" >
+  <ng-container *cdkVirtualFor="let emp of data">
+    <li> {{emp.empCode}} </li>
+  </ng-container>
+</cdk-virtual-scroll-viewport> -->
+
+<cdk-virtual-scroll-viewport  style="height: 443px;" itemSize="1" >
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Full Name</th>
+      <th>EMP Code</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *cdkVirtualFor="let emp of service.listData">
+        <td (click)="populateForm(emp)">{{emp.id}}</td>
+        <td (click)="populateForm(emp)">{{emp.fullname}}</td>
+        <td (click)="populateForm(emp)">{{emp.empCode}}</td>
+        <td align="center"><button class="btn btn-sm btn-outline-danger" (click)="deleteRecord(emp.id)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+</cdk-virtual-scroll-viewport>
